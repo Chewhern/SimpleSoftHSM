@@ -9,6 +9,7 @@ namespace SimpleSoftHSM
         private static Boolean IsInitialized;
         private static Boolean HasSodiumInitialized;
         private static int Count;
+        private static Boolean HasKeyCleared;
 
         public static void LoadSecretKey(Byte[] Key) 
         {
@@ -38,7 +39,7 @@ namespace SimpleSoftHSM
                         SodiumInit.Init();
                         HasSodiumInitialized = true;
                     }
-                    if (IsInitialized == true)
+                    if (IsInitialized == true && HasKeyCleared==false)
                     {
                         SodiumGuardedHeapAllocation.Sodium_MProtect_ReadWrite(SecretKeyIntPtr);
                     }
@@ -60,6 +61,7 @@ namespace SimpleSoftHSM
                 {
                     throw new ArgumentException("Error: Access Denied");
                 }
+                HasKeyCleared = false;
             }            
         }
 
@@ -313,6 +315,32 @@ namespace SimpleSoftHSM
                 }
             }
             return Message;
+        }
+
+        public static void ClearSecretKey()
+        {
+            Boolean IsAuthorized = true;
+            DateTime ChallengeGenerateDT = Initialization.GetChallengeGenerateDT();
+            DateTime CurrentDateTime = DateTime.UtcNow.AddHours(8);
+            TimeSpan Duration = CurrentDateTime.Subtract(ChallengeGenerateDT);
+            Byte[] Message = new Byte[] { };
+            if (Duration.TotalMinutes > 8)
+            {
+                throw new ArgumentException("Error: Please request another challenge");
+            }
+            else
+            {
+                IsAuthorized = Initialization.GetIsAuthorized();
+                if (IsAuthorized == true)
+                {
+                    SodiumGuardedHeapAllocation.Sodium_Free(SecretKeyIntPtr);
+                    HasKeyCleared = true;
+                }
+                else
+                {
+                    throw new ArgumentException("Error: Please request another challenge or use another public key");
+                }
+            }
         }
     }
 }
