@@ -1,5 +1,5 @@
 # SimpleSoftHSM
-This library uses libsodium's guarded heap allocation, ED25519 challenge and respond as authentication and experimental domain separation encryption/decryption to mimic HSM in a secure manner.
+This library uses libsodium's guarded heap allocation, ED25519/ED448 challenge and respond as authentication and experimental domain separation encryption/decryption to mimic HSM in a secure manner.
 
 Steps:
 1. Create an ED448 keypair or ED25519 keypair via bouncycastle or libsodium.
