@@ -15,3 +15,6 @@ Version 0.0.4 (Unlisted)
 
 Version 0.0.5 (Unlisted)
 - Fixed partial bugs
+
+Version 0.0.6
+- Fixed bugs
