@@ -13,5 +13,5 @@ Version 0.0.4 (Unlisted)
 - Implement basic key commiting along with domain separation
 - Added private key and public key signing/verification
 
-Version 0.0.5
-- Fixed some bugs
+Version 0.0.5 (Unlisted)
+- Fixed partial bugs
