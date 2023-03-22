@@ -8,8 +8,8 @@ Steps:
 4. Sign the challenge via ED448 or ED25519. (The signed challenge needs to be in the form of Signature+Challenge)
 5. Send signed challenge to authorize function. (Keep in mind, the signed challenge or valid authorization period lasts for no more than 8 minutes)
 6. Load ED448 or ED25519 signing private key into the library. (Copies the private key and forcefully apply permission on it for details refer to libsodium's guarded heap allocation and permission)
-7. Load any randomly generated encryption/secret key into the library.
-8. Load any randomly generated MAC key into library.
+7. Load any randomly generated encryption/secret key into the library. (Similar description as stated in 6th)
+8. Load any randomly generated MAC key into library. (Similar description as stated in 6th)
 9. Encrypt or decrypt data. 
 10. Clear the secret key.
 
