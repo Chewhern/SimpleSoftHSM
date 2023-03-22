@@ -18,3 +18,12 @@ Version 0.0.5 (Unlisted)
 
 Version 0.0.6
 - Fixed bugs
+
+Version 0.0.7 (Unlisted)
+- Allowing replacing duration of the public key to be customized
+- Allowing authorization duration to be customized
+- Some bugs in implementing the customization
+- After 1st initializing, the 2nd initializing or 1st replacing of public key now clear and deallocate the pointer memory of secret keys and private keys.
+
+Version 0.0.8
+- Fixed bugs
