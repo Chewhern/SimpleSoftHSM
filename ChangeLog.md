@@ -27,3 +27,7 @@ Version 0.0.7 (Unlisted)
 
 Version 0.0.8
 - Fixed bugs
+
+Version 0.0.9
+- Changed **PrivateKeySigningOperation** into **DigitalSignatureOperation**.
+- The input of public key in **DigitalSignatureOperation** is now compulsory from users/developers. 
