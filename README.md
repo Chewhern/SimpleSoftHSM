@@ -16,4 +16,4 @@ Steps:
 
 **Starting from version 0.0.6, the experimental domain separation within secret key encryption/decryption now has basic key commitment via digital signature signing and verification.**
 
-**As key commitment was involved in symmetric encryption, the only uniqueness in this software based HSM may be its secretless based approach in authentication. The current unclear use case may be limited to only secure communication between 2 parties when key commitment was not an issue from the sender side.**
+**As key commitment was involved in symmetric encryption, the only uniqueness in this software based HSM may be its secretless based approach in authentication. The current unclear use case may be limited to only secure communication between 2 parties when key commitment was not an issue from the sender side. In addition, this also enforces a strong and secure authentication by default at the user side.**
