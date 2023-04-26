@@ -31,3 +31,6 @@ Version 0.0.8
 Version 0.0.9
 - Changed **PrivateKeySigningOperation** into **DigitalSignatureOperation**.
 - The input of public key in **DigitalSignatureOperation** is now compulsory from users/developers. 
+
+Version 0.1.0
+- Added **Domain Separation** into **SecretKeyOperation** without basic key commitment.
