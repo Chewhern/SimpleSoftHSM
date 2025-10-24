@@ -26,3 +26,8 @@ The actual details on how to make it work might be long and tedious.
 If client side requires SHSM that does not turn any specific end user device into a server, SHSM most likely won't be able to provide OSI level 1 security.
 
 The best SHSM can provide is software level KMS (Key Management System) + zero trust related implementations. The actual inner workings of HSM is essentially like how antivirus or virus/anticheat or cheat/DRM works which is security with obscurity. Security with obscurity refers to any security mechanisms were only proven to be secure when one doesn't know how its inner workings work. 
+
+## Other information
+If time and chances present, I might make this slightly more secure by making appropriate changes.
+
+**For maximum security, especially when using SHSM related functions (not necessarily my implementations), if the underlying cryptography libraries are not like libsodium try to disable the swap partition even though from a system stability point of security, it's not recommended. One has to choose between system stability and cryptographic security.**
