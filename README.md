@@ -1,5 +1,5 @@
 # SimpleSoftHSM
-This library uses libsodium's guarded heap allocation, ED25519/ED448 challenge and respond as authentication and experimental domain separation encryption/decryption to mimic HSM in a secure manner.
+This library uses libsodium's guarded heap allocation, ED25519/ED448 challenge and respond as authentication and experimental key separation encryption/decryption to mimic HSM in a secure manner.
 
 Steps:
 1. Create an ED448 keypair or ED25519 keypair via bouncycastle or libsodium.
@@ -17,3 +17,12 @@ Steps:
 **Starting from version 0.0.6, the experimental domain separation within secret key encryption/decryption now has basic key commitment via digital signature signing and verification.**
 
 **As key commitment was involved in symmetric encryption, the only uniqueness in this software based HSM may be its secretless based approach in authentication. The current unclear use case may be limited to only secure communication between 2 parties when key commitment was not an issue from the sender side. In addition, this also enforces a strong and secure authentication by default at the user side.**
+
+## SHSM limitations
+SHSM typically will be able to work fine on OSI level 1, 4 to 7 when any specific end user device turned into a server.
+
+The actual details on how to make it work might be long and tedious.
+
+If client side requires SHSM that does not turn any specific end user device into a server, SHSM most likely won't be able to provide OSI level 1 security.
+
+The best SHSM can provide is software level KMS (Key Management System) + zero trust related implementations. The actual inner workings of HSM is essentially like how antivirus or virus/anticheat or cheat/DRM works which is security with obscurity. Security with obscurity refers to any security mechanisms were only proven to be secure when one doesn't know how its inner workings work. 
